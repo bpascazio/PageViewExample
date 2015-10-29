@@ -16,9 +16,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
-        
-        pageViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController
         pageViewController!.dataSource = self
         let initialVC = self.viewcontrollerAtIndex(0) as ContentViewController
         let contentControllers = NSArray(object: initialVC)

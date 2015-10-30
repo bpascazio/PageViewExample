@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -36,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-Ux-rll">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-Ux-rll">
                                 <rect key="frame" x="20" y="28" width="560" height="69"/>
                                 <animations/>
                                 <constraints>
@@ -46,10 +47,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lxt-cj-gWd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lxt-cj-gWd">
                                 <rect key="frame" x="20" y="97" width="560" height="503"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDI-Z0-M8Z">
+                                <rect key="frame" x="550" y="28" width="30" height="69"/>
+                                <animations/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <segue destination="6At-qs-k26" kind="show" id="zur-Rp-YHy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,12 +66,16 @@
                             <constraint firstItem="4yb-Ux-rll" firstAttribute="leading" secondItem="Lxt-cj-gWd" secondAttribute="leading" id="1Hf-Mb-FHE"/>
                             <constraint firstItem="Lxt-cj-gWd" firstAttribute="trailing" secondItem="4yb-Ux-rll" secondAttribute="trailing" id="Cfz-dQ-ogC"/>
                             <constraint firstItem="4yb-Ux-rll" firstAttribute="top" secondItem="UXV-Nt-m3w" secondAttribute="bottom" constant="8" symbolic="YES" id="OAD-nn-iVC"/>
+                            <constraint firstItem="oDI-Z0-M8Z" firstAttribute="bottom" secondItem="4yb-Ux-rll" secondAttribute="bottom" id="bb3-yt-s1Y"/>
                             <constraint firstItem="Lxt-cj-gWd" firstAttribute="bottom" secondItem="dGX-Er-0L0" secondAttribute="top" id="eXe-Ck-pu1"/>
                             <constraint firstItem="Lxt-cj-gWd" firstAttribute="trailing" secondItem="j54-7F-Ewe" secondAttribute="trailingMargin" id="ekR-Ao-3tR"/>
                             <constraint firstItem="Lxt-cj-gWd" firstAttribute="leading" secondItem="j54-7F-Ewe" secondAttribute="leadingMargin" id="gWZ-cd-W9Q"/>
+                            <constraint firstItem="oDI-Z0-M8Z" firstAttribute="trailing" secondItem="Lxt-cj-gWd" secondAttribute="trailing" id="iwz-uj-gQb"/>
+                            <constraint firstItem="oDI-Z0-M8Z" firstAttribute="top" secondItem="4yb-Ux-rll" secondAttribute="top" id="umP-OA-uro"/>
                             <constraint firstItem="Lxt-cj-gWd" firstAttribute="top" secondItem="4yb-Ux-rll" secondAttribute="bottom" id="wF8-Wc-Hy6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9RG-BE-H2W"/>
                     <connections>
                         <outlet property="imageView" destination="Lxt-cj-gWd" id="hT2-h5-Ntj"/>
                         <outlet property="titleLabel" destination="4yb-Ux-rll" id="KZp-OG-52w"/>
@@ -70,15 +83,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7L-ju-bSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="318" y="1158"/>
+            <point key="canvasLocation" x="2420" y="389"/>
+        </scene>
+        <!--loginViewController-->
+        <scene sceneID="tMM-G8-cfI">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="loginViewController" storyboardName="Login" referencedIdentifier="loginViewController" id="6At-qs-k26" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDS-qG-nwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2994" y="294"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="t4P-Ai-ffI">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s0O-5V-zl3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8D-y1-A9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s0O-5V-zl3" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="973" y="620"/>
+            <point key="canvasLocation" x="979" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5rY-gU-3AL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UYP-Su-L3E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NsH-wM-9M6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BWe-IZ-u4k" kind="relationship" relationship="rootViewController" id="AyK-0t-w9L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uz0-HZ-pXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608" y="389"/>
         </scene>
     </scenes>
 </document>

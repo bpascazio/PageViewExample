@@ -16,6 +16,8 @@
 		2D6982C41BCD66510046B79A /* PageViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6982C31BCD66510046B79A /* PageViewExampleUITests.swift */; };
 		2D6982D21BCD67CD0046B79A /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6982D11BCD67CD0046B79A /* ContentViewController.swift */; };
 		2DAE68771BCF8311005AB7D3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE68761BCF8311005AB7D3 /* ImageModel.swift */; };
+		C1AAFB4E1BE2EE1B00B4CB91 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AAFB4D1BE2EE1B00B4CB91 /* Login.storyboard */; };
+		C1AAFB501BE2EFDD00B4CB91 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AAFB4F1BE2EFDD00B4CB91 /* App.storyboard */; };
 		E23800DFFE344B784D445B29 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F5B440D68ABFAB5C91CBE3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		2DAE68761BCF8311005AB7D3 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		A8F5B440D68ABFAB5C91CBE3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67D7253D7849A4614D656F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C1AAFB4D1BE2EE1B00B4CB91 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		C1AAFB4F1BE2EFDD00B4CB91 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				2D6982AA1BCD66500046B79A /* Assets.xcassets */,
 				2D6982AC1BCD66500046B79A /* LaunchScreen.storyboard */,
 				2D6982AF1BCD66500046B79A /* Info.plist */,
+				C1AAFB4D1BE2EE1B00B4CB91 /* Login.storyboard */,
+				C1AAFB4F1BE2EFDD00B4CB91 /* App.storyboard */,
 			);
 			path = PageViewExample;
 			sourceTree = "<group>";
@@ -261,9 +267,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1AAFB4E1BE2EE1B00B4CB91 /* Login.storyboard in Resources */,
 				2D6982AE1BCD66500046B79A /* LaunchScreen.storyboard in Resources */,
 				2D6982AB1BCD66500046B79A /* Assets.xcassets in Resources */,
 				2D6982A91BCD66500046B79A /* Main.storyboard in Resources */,
+				C1AAFB501BE2EFDD00B4CB91 /* App.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

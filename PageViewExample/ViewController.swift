@@ -9,25 +9,32 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class ViewController: UIViewController, UIPageViewControllerDataSource,
+    UIPageViewControllerDelegate {
+    
     var pageViewController: UIPageViewController?
     var pageTitles: Array<String> =  ["First Scene","Second Scene", "Third Scene"]
     var images: Array<String> =  ["firstdinner_1","firstdinner_2","firstdinner_3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController
-        pageViewController!.dataSource = self
-        let initialVC = self.viewcontrollerAtIndex(0) as ContentViewController
-        let contentControllers = NSArray(object: initialVC)
-        pageViewController!.setViewControllers(contentControllers as! [ContentViewController], direction: .Forward, animated: true, completion: nil)
-        pageViewController!.view.frame = CGRectMake(0, 30.0, self.view.frame.width, self.view.frame.height - 30)
+        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier(
+            "PageViewController") as? UIPageViewController
         
-        addChildViewController(pageViewController!)
-        view.addSubview(self.pageViewController!.view)
-        Alamofire.request(.GET, "https://api.500px.com/v1/photos", parameters: ["consumer_key": "Qt1cnaFnMFtJlf4lhqXqnXmGBaHoBsUE40fsx3XS"]).responseJSON() {
-            (JSON) in
-            print(JSON)
+        if let pageViewController_ = pageViewController {
+
+            // Setup the page view controller.
+            pageViewController_.dataSource = self
+            let initialVC = self.viewcontrollerAtIndex(0) as ContentViewController
+            let contentControllers = [initialVC]
+            pageViewController_.setViewControllers(contentControllers, direction: .Forward,
+                animated: true, completion: nil)
+            pageViewController_.view.frame = CGRectMake(0, 30.0, self.view.frame.width,
+                self.view.frame.height - 30)
+
+            // Adding a child view controller.
+            addChildViewController(pageViewController_)
+            view.addSubview(pageViewController_.view)
         }
     }
   
@@ -36,27 +43,22 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         // Dispose of any resources that can be recreated.
     }
     
+    // Utility function to create a content view controller and set the image.
     func viewcontrollerAtIndex(index: Int) -> ContentViewController{
-        if ((pageTitles.count == 0) || (index >= pageTitles.count)) {
-            return ContentViewController!()
-        }
-        let contentVC = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
+//        if ((pageTitles.count == 0) || (index >= pageTitles.count)) {
+//            return ContentViewController!()
+//        }
+        let contentVC = self.storyboard?.instantiateViewControllerWithIdentifier(
+            "ContentViewController") as! ContentViewController
         contentVC.imageFile = images[index] as String
         contentVC.titleText = pageTitles[index] as String
         contentVC.pageIndex = index
         return contentVC
     }
     
-    @IBAction func restartTapped(sender: AnyObject) {
-        //var initialVc = self.viewcontrollerAtIndex(0) as ContentViewController
-        //       let contentController = NSArray(object: 0)
-        //       self.pageViewController.setViewControllers(contentController as! [ContentViewController], direction: .Forward, animated: true, completion: nil)
-        
-    }
-    
-    
-    // Mark: - Pageviewcontroller datasource
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    // MARK: Pageviewcontroller datasource
+    func pageViewController(pageViewController: UIPageViewController,
+        viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let contentVC = viewController as! ContentViewController
         var index = contentVC.pageIndex as Int
         if index == 0 || index == NSNotFound{
@@ -66,7 +68,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         return self.viewcontrollerAtIndex(index)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(pageViewController: UIPageViewController,
+        viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let contentVC = viewController as! ContentViewController
         var index = contentVC.pageIndex as Int
         if index == NSNotFound{
@@ -79,15 +82,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         return self.viewcontrollerAtIndex(index)
         
     }
+    
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return pageTitles.count
     }
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
-        
-    }
-    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
-        return
-    }
-    
 }
